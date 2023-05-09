@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pro.sky.java.course2.newStore.model.Product;
 import pro.sky.java.course2.newStore.service.NewStoreService;
-import pro.sky.java.course2.newStore.exeptions.*;
+import pro.sky.java.course2.newStore.exceptions.*;
 
 import java.util.List;
 import java.util.Map;
@@ -42,15 +42,15 @@ public class NewStoreController {
         return storeService.get();
     }
 
-    @ExceptionHandler(LittleValueProductExeption.class)
+    @ExceptionHandler(LittleValueProductException.class)
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public String LittleProductExeption(LittleValueProductExeption e) {
+    public String LittleValueProductException(LittleValueProductException e) {
         return e.getMessage();
     }
 
-    @ExceptionHandler(ProductNotFoundExeption.class)
+    @ExceptionHandler(ProductNotFoundException.class)
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public String ProductNotFoundExeption(ProductNotFoundExeption e) {
+    public String ProductNotFoundException(ProductNotFoundException e) {
         return e.getMessage();
     }
 

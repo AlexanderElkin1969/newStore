@@ -2,7 +2,7 @@ package pro.sky.java.course2.newStore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pro.sky.java.course2.newStore.exeptions.*;
+import pro.sky.java.course2.newStore.exceptions.*;
 import pro.sky.java.course2.newStore.model.*;
 
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class NewStoreServiceImpl implements NewStoreService {
         Product order;
         Product product = store.get(id);
         if (product == null) {
-            throw new ProductNotFoundExeption("Товар не найден. Проверьте правильность написания Артикула_товара.");
+            throw new ProductNotFoundException("Товар не найден. Проверьте правильность написания Артикула_товара.");
         }
         int balance = product.getQuantity() - quantity;
         if (balance >= 0) {
@@ -42,7 +42,7 @@ public class NewStoreServiceImpl implements NewStoreService {
             product.setQuantity(balance);
             return order;
         } else {
-            throw new LittleValueProductExeption("Товар временно не доступен в данном объёме.");
+            throw new LittleValueProductException("Товар временно не доступен в данном объёме.");
         }
     }
 

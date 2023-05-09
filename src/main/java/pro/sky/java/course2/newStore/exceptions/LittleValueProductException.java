@@ -1,11 +1,11 @@
-package pro.sky.java.course2.newStore.exeptions;
+package pro.sky.java.course2.newStore.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-public class ProductNotFoundExeption extends RuntimeException {
-    public ProductNotFoundExeption(String message) {
+public class LittleValueProductException extends RuntimeException {
+    public LittleValueProductException(String message) {
         super(message);
     }
 }
